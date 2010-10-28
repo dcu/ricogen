@@ -37,7 +37,7 @@ but no bitching about what you prefer. Feel free to fork this to your black litt
 
 ## Getting Started
 
-Install the gem with "gem install hamgen" then run "hamgen #{app_name}" which app_name is your app name... duh!
+Install the gem with "gem install ricogen" then run "ricogen #{app_name}" which app_name is your app name... duh!
 
 Then it builds something *I* like.
 
