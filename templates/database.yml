@@ -1,0 +1,10 @@
+development:
+  database: app-development
+  host: localhost
+  port: 27017
+
+test:
+  database: app-test
+
+production:
+  database: app-development

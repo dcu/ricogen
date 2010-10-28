@@ -24,6 +24,8 @@ run   "rm public/robots.txt"
 run   "rm -r public/images"
 run   "rm -f public/javascripts/*"
 run   "rm app/views/layouts/application.html.erb"
+run   "rm config/initializers/session_store.rb"
+run   "rm config/initializers/secret_token.rb"
 puts  "---------------------------------------------------------"
 
 # ADD FILES
@@ -55,12 +57,49 @@ puts  "---------------------------------------------------------"
 # SASS
 puts  " Installing Sass directory, files and environment preferences ...".green
 puts  "---------------------------------------------------------"
-run   "cp -r #{@path}sass app/"
-run   "cp #{@path}plugins.rb config/initializers/"
+run   "cp -r #{@path}sass app/stylesheets"
+run   "cp #{@path}compass.rb config/initializers/"
+run   "cp #{@path}compass.config config/"
 run   "cat #{@path}environment.rb >> config/environment.rb"
-Dir["app/sass/**/*.sass"].each do |file|
-  run "sass-convert -T sass -F sass -i #{file}"
+# Dir["app/sass/**/*.sass"].each do |file|
+#   run "sass-convert -T sass -F sass -i #{file}"
+# end
+puts  "---------------------------------------------------------"
+
+# SASS
+puts  " Installing Mongodb dependencies, files and environment preferences ...".green
+puts  "---------------------------------------------------------"
+run   "cp #{@path}_config.rb config/initializers/"
+run   "cp #{@path}mongo.rb config/initializers/"
+run   "cp #{@path}database.yml config/"
+run   "cp #{@path}magent.yml config/"
+
+default_config = {"session_secret" => ActiveSupport::SecureRandom.hex(80),
+                  "session_key" => "__app_session",
+                  "domain" => "localhost"}
+
+File.open("config/app.yml", "w") do |f|
+  f.puts({"development" => default_config}.to_yaml)
 end
+
+data = File.read("#{@path}application.rb")
+orig_data = File.read("config/application.rb")
+
+File.open("config/application.rb", "w") do |f|
+  orig_data.each_line do |line|
+    if line =~ /^require 'rails\/all'/
+      f.puts %@require "action_controller/railtie"
+require "action_mailer/railtie"
+require "active_resource/railtie"\n@
+    elsif line =~ /^\s+config\.filter_parameters/
+      f.write(line)
+      f.puts(data)
+    else
+      f.write(line)
+    end
+  end
+end
+
 puts  "---------------------------------------------------------"
 
 # GEMFILE
