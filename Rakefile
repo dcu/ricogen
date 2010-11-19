@@ -12,7 +12,7 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = true
 end
 
-spec = eval(File.read('hamgen.gemspec'))
+spec = eval(File.read('ricogen.gemspec'))
 Rake::GemPackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
 end
@@ -20,5 +20,5 @@ end
 desc "Build and install local gem"
 task "local" => "repackage" do
   puts "Installing locally... this might take a second"
-  puts `gem install pkg/hamgen-#{File.read('VERSION').strip}.gem --no-ri --no-rdoc`
+  puts `gem install pkg/ricogen-#{File.read('VERSION').strip}.gem --no-ri --no-rdoc`
 end
