@@ -12,20 +12,29 @@ gem 'ruby-stemmer', '~> 0.8.2'
 gem 'magent', '~> 0.5.2'
 gem 'uuidtools'
 gem 'sanitize', '~> 1.2.1'
+gem 'dynamic_form'
+gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => "rails3"
+gem 'rdiscount'
+
+# twitter
+gem "twitter-text", "1.1.8"
+gem "twitter_oauth"
 
 # mongodb
-gem 'bson', '1.1.1'
-gem 'bson_ext', '1.1.1'
-gem 'plucky', '0.3.6'
+gem 'bson', '1.1.2'
+gem 'bson_ext', '1.1.2'
 
-gem 'mongo', '1.1.1'
-gem 'jnunemaker-validatable', '1.8.4'
-gem 'mongo_mapper', '0.8.6'
-gem 'mongomapper_ext', '0.5.1'
+gem 'mongo', '1.1.2'
+gem 'mongoid', '2.0.0.beta.20'
+gem 'mongoid_ext', :git => "git://github.com/dcu/mongoid_ext.git"
 
 # authentication
-gem 'omniauth', '0.1.4'
-gem 'multiauth', '0.2.7'
+gem 'omniauth', '~> 0.1.6'
+gem 'multiauth', :git => "http://github.com/dcu/multiauth.git", :ref => "fb04b6742"
+
+gem 'orm_adapter'
+gem 'devise', :git => 'http://github.com/plataformatec/devise.git'
+
 
 group :scripts do
   gem 'eventmachine', '~> 0.12.10'
@@ -39,4 +48,12 @@ group :development do
   gem 'mongrel', '1.2.0.pre2'
   gem 'nifty-generators', '~> 0.4.2'
   gem 'capistrano'
+  gem "fabrication"
+  gem "autotest"
+  gem "remarkable_mongoid", ">= 0.5.0"
+  gem 'hpricot'
+  gem 'ruby_parser'
+  gem "database_cleaner"
+
 end
+

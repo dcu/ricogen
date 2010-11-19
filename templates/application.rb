@@ -4,5 +4,5 @@
       g.test_framework = :rspec
     end
 
-    config.middleware.use "MongoMapperExt::FileServer"
+    config.middleware.use "MongoidExt::FileServer"
 

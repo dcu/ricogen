@@ -71,7 +71,7 @@ puts  " Installing Mongodb dependencies, files and environment preferences ...".
 puts  "---------------------------------------------------------"
 run   "cp #{@path}_config.rb config/initializers/"
 run   "cp #{@path}mongo.rb config/initializers/"
-run   "cp #{@path}database.yml config/"
+run   "cp #{@path}mongoid.yml config/"
 run   "cp #{@path}magent.yml config/"
 
 default_config = {"session_secret" => ActiveSupport::SecureRandom.hex(80),
