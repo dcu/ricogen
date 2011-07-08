@@ -6,7 +6,7 @@ require 'fileutils'
 class HamgenTest < Test::Unit::TestCase
   def initialize(arg)
     @path = File.dirname(__FILE__) + '/../'
-    @exec = @path + "bin/hamgen"
+    @exec = @path + "bin/ricogen"
     @app_name = "test_app"
     @app_path = @path + "test_app"
     super(arg)
