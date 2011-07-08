@@ -1,17 +1,18 @@
 source "http://gemcutter.org"
 
-gem "rails", "3.0.3"
+gem "rails", "~> 3.0.8"
 
 # ui
 gem "haml"
-gem 'compass', '0.10.6.pre.1'
+gem "sass"
+gem 'compass', '0.11.4'
 
 # utils
 gem 'magic', '~> 0.2.6'
 gem 'ruby-stemmer', '~> 0.8.2'
-gem 'magent', '~> 0.5.2'
+gem 'magent', '~> 0.6.2'
 gem 'uuidtools'
-gem 'sanitize', '~> 1.2.1'
+gem 'sanitize', '~> 2.0.3'
 gem 'dynamic_form'
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => "rails3"
 gem 'rdiscount'
@@ -21,39 +22,47 @@ gem "twitter-text", "1.1.8"
 gem "twitter_oauth"
 
 # mongodb
-gem 'bson', '1.1.2'
-gem 'bson_ext', '1.1.2'
+gem 'bson', '1.3.1'
+gem 'bson_ext', '1.3.1'
 
-gem 'mongo', '1.1.2'
-gem 'mongoid', '2.0.0.beta.20'
+gem 'mongo', '1.3.1'
+gem 'mongoid', '2.0.2'
 gem 'mongoid_ext', :git => "git://github.com/dcu/mongoid_ext.git"
 
 # authentication
-gem 'omniauth', '~> 0.1.6'
+gem 'omniauth', '~> 0.2.6'
 gem 'multiauth', :git => "http://github.com/dcu/multiauth.git"
 
 gem 'orm_adapter'
-gem 'devise', :git => 'http://github.com/plataformatec/devise.git'
+gem 'devise', '~> 1.4.2'
 
 
 group :scripts do
   gem 'eventmachine', '~> 0.12.10'
-  gem 'em-websocket', '~> 0.1.4'
+  gem 'em-websocket', '~> 0.3.0'
   gem 'cronedit'
 end
 
-group :development do
-  gem 'rspec', '2.0.0'
-  gem 'rspec-rails', '2.0.0'
-  gem 'mongrel', '1.2.0.pre2'
-  gem 'nifty-generators', '~> 0.4.2'
-  gem 'capistrano'
-  gem "fabrication"
+group :test do
+  gem 'rspec', '2.6.0'
+  gem 'rspec-rails', '2.6.0'
+  gem 'capybara', '1.0.0'
+  #gem "capybara-webkit", '1.0.0.beta4'
   gem "autotest"
-  gem "remarkable_mongoid", ">= 0.5.0"
+  gem 'factory_girl'
+  gem 'ffaker'
+  gem 'launchy'
+  gem "remarkable_mongoid", ">= 0.6.0"
+  gem 'simplecov'
+end
+
+group :development do
+  gem 'mongrel', '1.2.0.pre2'
+  gem 'nifty-generators', '~> 0.4.6'
+  gem 'capistrano'
   gem 'hpricot'
   gem 'ruby_parser'
   gem "database_cleaner"
-
+  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
 end
 
