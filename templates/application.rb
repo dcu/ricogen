@@ -1,5 +1,5 @@
     config.generators do |g|
-      g.orm = :mongo_mapper
+      g.orm = :mongoid
       g.template_engine = :haml
       g.test_framework = :rspec
     end

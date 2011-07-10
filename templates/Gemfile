@@ -4,7 +4,7 @@ gem "rails", "~> 3.0.8"
 
 # ui
 gem "haml", "~> 3.1.2"
-gem "sass" "~> 3.1.4"
+gem "sass", "~> 3.1.4"
 gem 'compass', '0.11.4'
 
 # utils
@@ -12,7 +12,7 @@ gem 'magic', '~> 0.2.6'
 gem 'ruby-stemmer', '~> 0.8.2'
 gem 'magent', '~> 0.6.2'
 gem 'uuidtools'
-gem 'sanitize', '~> 2.0.3'
+gem 'sanitize', '~> 2.0.2'
 gem 'dynamic_form'
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => "rails3"
 gem 'rdiscount'
